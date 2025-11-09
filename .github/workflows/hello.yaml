@@ -12,3 +12,9 @@ jobs:
       - name: Say hello
         run: |
           echo "Hello World!"
+  print_date_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print the date
+        run: |
+          date

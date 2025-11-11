@@ -23,4 +23,6 @@ jobs:
         run: pnpm install
       - name: run eslint
         run: pnpm eslint
+      - name: run playwright e2e tests
+        run: pnpm run test:e2e
 

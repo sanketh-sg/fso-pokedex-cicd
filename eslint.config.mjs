@@ -38,7 +38,7 @@ export default defineConfig([
       globals: {...globals.node, ...globals.browser} } 
   },
   {
-    ignores: ['dist/**'],
+    ignores: ['dist/**','node_modules/**','*.config.js'],
   },
   {
     "settings": {

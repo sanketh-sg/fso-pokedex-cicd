@@ -7,6 +7,7 @@
     "start": "webpack-dev-server --open --mode development",
     "start-prod": "node app.js",
     "test": "jest",
+    "test:e2e": "playwright test",
     "eslint": "eslint \"**/*.{js,jsx}\"",
     "build": "webpack --mode production"
   },
@@ -29,8 +30,10 @@
     "@babel/preset-env": "^7.28.5",
     "@babel/preset-react": "^7.28.5",
     "@eslint/js": "^9.39.1",
+    "@playwright/test": "^1.56.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.0",
+    "@types/node": "^24.10.0",
     "babel-jest": "^30.2.0",
     "babel-loader": "^10.0.0",
     "css-loader": "^7.1.2",
@@ -57,6 +60,9 @@
     "react-router-dom": "^7.9.5"
   },
   "jest": {
-    "testEnvironment": "jsdom"
+    "testEnvironment": "jsdom",
+    "testPathIgnorePatterns": [
+      "e2e-tests"
+    ]
   }
 }

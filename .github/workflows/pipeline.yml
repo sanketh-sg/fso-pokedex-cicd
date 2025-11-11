@@ -23,8 +23,7 @@ jobs:
         run: pnpm install
       - name: run eslint
         run: pnpm eslint
-      - name: playwright e2e tests
-      - name: Install dependencies
+      - name: Install dependencies for playwright tests
         run: pnpm install ci
       - name: Install Playwright Browsers
         run: pnpm exec playwright install --with-deps

@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { BrowserRouter } from 'react-router-dom'
 import '@testing-library/jest-dom'
 import PokemonList from '../src/PokemonList'
+import { describe, it, expect } from '@jest/globals'
 
 
 const pokemonList = [{

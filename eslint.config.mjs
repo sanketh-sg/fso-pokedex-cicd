@@ -2,16 +2,20 @@ import js from "@eslint/js";
 import globals from "globals";
 import pluginReact from "eslint-plugin-react";
 import { defineConfig } from "eslint/config";
-import stylisticJs from '@@stylistic/eslint-plugin'
+import stylisticJs from '@stylistic/eslint-plugin'
 export default defineConfig([
+  pluginReact.configs.flat.recommended,
   js.configs.recommended,
   { 
-    files: ["**/*.{js,mjs,cjs,jsx}"], 
+    files: ["**/*.{js,mjs,cjs,jsx}"],
+    
     
     plugins: { js,
-      '@stylistic/js' : stylisticJs
+      '@stylistic/js' : stylisticJs,
+      pluginReact
      }, 
      rules: { 
+      'react/prop-types': 'off',
       '@stylistic/js/indent': ['error', 2],
       '@stylistic/js/linebreak-style': ['error', 'unix'],
       '@stylistic/js/quotes': ['error', 'single'],
@@ -24,12 +28,23 @@ export default defineConfig([
     }, 
     extends: ["js/recommended"], 
     languageOptions: { 
-      sourceType: 'commanjs',
+      sourceType: 'module',
       ecmaVersion: 'latest',
+      parserOptions: {
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
       globals: {...globals.node, ...globals.browser} } 
   },
   {
     ignores: ['dist/**'],
   },
-  pluginReact.configs.flat.recommended,
+  {
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    }
+  },
 ]);
